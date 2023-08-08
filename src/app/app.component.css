@@ -1,0 +1,39 @@
+.offcanvas{
+    background-color: rgba(0, 0, 0, 0.626);
+}
+.btn-close{
+    background-color: white;
+}
+.offcanvas-title{
+    color: white;
+}
+.offcanvas-body{
+    color: white;
+}
+
+.dropdown-item{
+    color: white;
+}
+
+.offcanvas-body .sources .style h6{
+    color: white;
+}
+
+.style{
+    cursor: pointer;
+}
+.imgstyle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid red;
+}
+.contain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.styleheader{
+    display: flex;
+}

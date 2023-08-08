@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">NewsApp</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+      </ul>
+      <!-- <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-success mx-2" type="submit">Search</button>
+      </form> -->
+
+      <a class="btn btn-danger" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+        View News Sources
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- Sidebar -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">News Sources</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div>
+      <div class="imgstyle mb-3">
+     <img class="mb-3" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnRsqRRNbA2rPv6H5n8NZIkDsdruBukzAU6A&usqp=CAU" alt="" width="90px" height="90px">
+     <h6 class="text-center">Aryan News Private Limited</h6>
+     </div>
+      <div class="sources" *ngFor="let source of sources">
+       <h6 (click)="searchSource(source)" class="style">{{source.name}}</h6>
+       <hr>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="styleheader container">
+      <span style="border-bottom:3px solid green;"><h3>{{selectedNewsChannel}}</h3></span><span style="margin-left:5%;"><a class="btn btn-success" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+        Select News Sources
+      </a></span>
+    </div>  
+
+    <div class="container contain">
+      <div class="row">
+    <div class="col-md-3 mx-auto my-5" *ngFor="let ta of trendingArticles; index as i">
+  <div class="card" style="width: 19rem;">
+    <img src="{{ta.urlToImage}}" class="card-img-top" alt="..." width="250px" height="250px">
+    <div class="card-body">
+      <div class="firstrow mb-3">
+      <p style="color: blueviolet; font-weight: 700;">Author: {{ta.author}}</p>
+      <span>{{ta.publishedAt | date:'medium'}}</span>
+      </div>
+      <h5 class="card-title">{{ta.title}}</h5>
+      <p class="leading-relaxed text-base" [innerHtml]="ta.description"></p>
+      <span><a class="btn btn-success" href="{{ta.url}}" target="_blank">read more....</a></span>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
